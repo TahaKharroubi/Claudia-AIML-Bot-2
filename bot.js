@@ -124,7 +124,7 @@ function menu(user, request) {
 function getAiml(user, request) {
   var aimlInterpreter = new AIMLInterpreter({name:'Roberto', age:'1 month', ufirst: user.first_name, ulast: user.last_name, gender: user.gender});
   aimlInterpreter.loadAIMLFilesIntoArray(["responses/bot.aiml"]);
-  aimlInterpreter.findAnswerInLoadedAIMLFiles(request.text.toUpperCase(), function(answer, wildCardArray, input){
+  aimlInterpreter.findAnswerInLoadedAIMLFiles(request, function(answer, wildCardArray, input){
     if(answer){
        roboResponse = answer;
     }else{
